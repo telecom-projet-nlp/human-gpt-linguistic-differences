@@ -11,3 +11,7 @@ gensim==4.3.*
 torch==2.8.*
 spacy==3.8.*
 sentence_transformers==5.1.*
+polars==1.34.*
+Extractor==0.5.*
+elfen==1.2.*
+#git+https://github.com/mmmaurer/elfen.git
