@@ -10,3 +10,4 @@ fasttext==0.9.*
 gensim==4.3.*
 torch==2.8.*
 spacy==3.8.*
+sentence_transformers==5.1.*
