@@ -1,17 +1,35 @@
+# =========================
+# CORE NUMERIC & DATA
+# =========================
 numpy==2.3.*
-matplotlib==3.10.*
 pandas==2.3.*
+polars==1.34.*
+
+# =========================
+# VISUALIZATION
+# =========================
+matplotlib==3.10.*
 seaborn==0.13.*
-scikit-learn==1.7.*
 plotly==6.3.*
+
+# =========================
+# MACHINE LEARNING & NLP
+# =========================
+scikit-learn==1.7.*
+torch==2.8.*
 nltk==3.9.*
 spacy==3.8.*
 fasttext==0.9.*
 gensim==4.3.*
-torch==2.8.*
-spacy==3.8.*
 sentence_transformers==5.1.*
-polars==1.34.*
+transformers>=4.43.0
 Extractor==0.5.*
 elfen==1.2.*
-#git+https://github.com/mmmaurer/elfen.git
+git+https://github.com/mmmaurer/elfen.git
+
+# =========================
+# NOTEBOOK & ENVIRONMENT
+# =========================
+jupyter==1.0.0
+ipykernel==6.29.5
+tqdm==4.66.5
