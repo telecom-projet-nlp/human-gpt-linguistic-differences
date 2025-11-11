@@ -39,9 +39,8 @@ The project uses two public datasets described by **Sandler et al. (2024)**:
 | **2GPT-EmpathicDialogues** | AI-generated dialogues between two ChatGPT-3.5-Turbo instances | ~19 500 dialogues |
 
 You can download both datasets here:
-
-- [EmpathicDialogues (Hugging Face)](https://huggingface.co/datasets/facebook/EmpatheticDialogues)  
-- [2GPT-EmpathicDialogues (Sandler et al., 2024)](https://github.com/msandler/2GPTEmpathicDialogues)
+- [EmpathicDialogues (Hugging Face)](https://github.com/facebookresearch/EmpatheticDialogues)
+- [2GPT-EmpatheticDialogues (Sandler et al., 2024)](https://github.com/morganlee123/2GPTEmpathicDialogues)
 
 After download, place the data files in:
 data/
@@ -60,10 +59,29 @@ pip install git+https://github.com/mmmaurer/elfen.git
 Install the English model for linguistic analysis and tokenization:
 python -m spacy download en_core_web_sm
 
+Notes on Running the ELFEN Processing Pipeline
+
+The extraction of linguistic and affective features using **ELFEN** is a **computationally intensive process**.  
+Please take into account the following execution details before running the feature generation step:
+
+## Notes on Computational Processing (ELFEN & spaCy)
+
+Both the **ELFEN feature extraction** and the **spaCy tokenization and linguistic preprocessing** steps are **computationally intensive** and rely on **parallel processing**.
+
+- **Parallelization:** ELFEN runs on **8 CPU cores**, while the spaCy tokenization pipeline uses **10 CPU cores** for batch processing.  
+  > Ensure your system has a **CPU with at least 10 cores** to achieve similar performance. Running on fewer cores may significantly increase processing time.  
+- **Processing time:** each stage requires approximately **40 minutes to 1 hour** for the *Human* dataset and a similar duration for the *GPT* dataset.  
+- **Output:** the generated linguistic and affective features are stored in a **synthetic summary file** named: GPT_valence_score.csv This file is **already available in the repository**, so it is **not necessary to rerun the ELFEN or spaCy processing pipelines** unless you wish to regenerate or update the data. Both components — **spaCy** and **ELFEN** — rely heavily on multiprocessing and benefit from high-performance CPUs. Running them sequentially is recommended to avoid CPU overload.
+
 ## References
-1. Sandler, M., Choung, H., Ross, A., & David, P. (2024). A Linguistic Comparison between Human and ChatGPT-Generated Conversations.arXiv:2401.16587v3 [cs.CL].
-2. Pennebaker, J. W. et al. (2015). LIWC2015 Manual. University of Texas at Austin.
-3. Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. EMNLP.
-4. Maurer, M. (2023). ELFEN: Efficient Linguistic Feature Extraction for Natural Language Datasets. GitHub.
-5. Explosion AI. (2024). spaCy Library Documentation.
-6. Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013). Applied Logistic Regression. Wiley.
+1. Sandler, M., Choung, H., Ross, A., & David, P. (2024). A Linguistic Comparison between Human and ChatGPT-Generated Conversations. arXiv:2401.16587v3 [cs.CL].
+2. Shaw, H., Taylor, P., Conchie, S., & Ellis, D. A. (2019). Language Style Matching: A Comprehensive List of Articles and Tools. https://doi.org/10.31234/osf.io/yz4br
+3. Boyd, R., Ashokkumar, A., Seraj, S., & Pennebaker, J. W. (2022). The Development and Psychometric Properties of LIWC-22. https://doi.org/10.13140/RG.2.2.23890.43205
+4. Gonzales, A. L., Hancock, J. T., & Pennebaker, J. W. (2010). Language Style Matching as a Predictor of Social Dynamics in Small Groups. Communication Research, 37(1), 3–19.
+5. Ireland, M. E., & Pennebaker, J. W. (2010). Language Style Matching in Writing: Synchrony in Essays, Correspondence, and Poetry. Journal of Personality and Social Psychology, 99(3), 549–571.
+6. Mohammad, S. M. (2018). Obtaining Reliable Human Ratings of Valence, Arousal, and Dominance for 20,000 English Words. Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics.
+7. Mohammad, S. M. (2025). NRC VAD Lexicon v2: Norms for Valence, Arousal, and Dominance for over 55k English Terms. arXiv preprint arXiv:2503.23547.
+8. Mohammad, S. M., & Turney, P. (2010). Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon. Proceedings of the NAACL-HLT 2010 Workshop on Computational Approaches to Analysis and Generation of Emotion in Text.
+9. Maurer, M. (2023). ELFEN: Efficient Linguistic Feature Extraction for Natural Language Datasets. GitHub Repository.
+10. Explosion AI. (2024). spaCy Library Documentation. https://spacy.io
+11. Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013). Applied Logistic Regression. Wiley.

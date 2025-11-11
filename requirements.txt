@@ -9,7 +9,6 @@ polars==1.34.*
 # VISUALIZATION
 # =========================
 matplotlib==3.10.*
-seaborn==0.13.*
 plotly==6.3.*
 
 # =========================
@@ -17,13 +16,9 @@ plotly==6.3.*
 # =========================
 scikit-learn==1.7.*
 torch==2.8.*
-nltk==3.9.*
 spacy==3.8.*
-fasttext==0.9.*
-gensim==4.3.*
-sentence_transformers==5.1.*
-transformers>=4.43.0
-Extractor==0.5.*
+nltk==3.9.*
+sentence-transformers==5.1.*
 elfen==1.2.*
 git+https://github.com/mmmaurer/elfen.git
 
