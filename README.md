@@ -71,7 +71,10 @@ Both the **ELFEN feature extraction** and the **spaCy tokenization and linguisti
 - **Parallelization:** ELFEN runs on **8 CPU cores**, while the spaCy tokenization pipeline uses **10 CPU cores** for batch processing.  
   > Ensure your system has a **CPU with at least 10 cores** to achieve similar performance. Running on fewer cores may significantly increase processing time.  
 - **Processing time:** each stage requires approximately **40 minutes to 1 hour** for the *Human* dataset and a similar duration for the *GPT* dataset.  
-- **Output:** the generated linguistic and affective features are stored in a **synthetic summary file** named: GPT_valence_score.csv This file is **already available in the repository**, so it is **not necessary to rerun the ELFEN or spaCy processing pipelines** unless you wish to regenerate or update the data. Both components — **spaCy** and **ELFEN** — rely heavily on multiprocessing and benefit from high-performance CPUs. Running them sequentially is recommended to avoid CPU overload.
+- **Output:** the generated linguistic and affective features are stored in a **synthetic summary file** named: GPT_valence_score.csv, and can be installed from [here](https://drive.google.com/file/d/1ahJW-pOdmQ5g1UAqeI3JGy-ayLCcdVIs/view?usp=sharing)
+  it is **not necessary to rerun the ELFEN or spaCy processing pipelines** unless you wish to regenerate or update the data.
+  Both components — **spaCy** and **ELFEN** — rely heavily on multiprocessing and benefit from high-performance CPUs.
+  Running them sequentially is recommended to avoid CPU overload.
 
 ## References
 1. Sandler, M., Choung, H., Ross, A., & David, P. (2024). A Linguistic Comparison between Human and ChatGPT-Generated Conversations. arXiv:2401.16587v3 [cs.CL].
